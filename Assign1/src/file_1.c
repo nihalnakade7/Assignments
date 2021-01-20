@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include "../inc/file_1.h"
+#include<file_1.h>
 
 void print_file1()
 {
