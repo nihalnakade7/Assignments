@@ -1,3 +1,5 @@
+
+CFLAGS= -Iinc/ -c -Wall
 all:main
 
 main: main.o file1.o file2.o
