@@ -7,11 +7,11 @@ INC= inc
 BIN= bin
 OBJS= objs
 LIB=lib
-LIBFILE=libmylib.a
+LIBFILE=libfile2.a
 
 SOURCE = $(wildcard $(SRC)/*.c)
 
-_OBJ_FILES= file_1.o file_2.o main.o
+_OBJ_FILES= file_1.o main.o
 OBJECT = $(patsubst %,$(OBJS)/%,$(_OBJ_FILES))
 
 CC= gcc
@@ -25,7 +25,7 @@ $(OBJS)/%.o : $(SRC)/%.c
 
 
 $(LIB)/$(LIBFILE): 
-	ar rcs $@ $(OBJS)/*.o
+	ar rcs $@ $(OBJS)/file_2.o
 
 clean :
 	rm objs/* bin/*
