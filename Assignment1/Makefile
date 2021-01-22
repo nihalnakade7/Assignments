@@ -10,7 +10,7 @@ LIB=lib
 LIBFILE=libmylib.a
 
 SOURCE = $(wildcard $(SRC)/*.c)
-#SOURCE = fiile_1.c file_2.c main.c
+
 _OBJ_FILES= file_1.o file_2.o main.o
 OBJECT = $(patsubst %,$(OBJS)/%,$(_OBJ_FILES))
 
