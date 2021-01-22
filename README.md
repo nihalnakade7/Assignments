@@ -15,39 +15,39 @@ _OBJ_FILES --> obj files <br>
 
 CFLAGS --> required header path <br>
 
-$(BIN)/$(TARGET) : $(OBJECT) $(LIB)/$(LIBFILE)
-	$(CC) -o $@ $^
+$(BIN)/$(TARGET) : $(OBJECT) $(LIB)/$(LIBFILE) <br>
+	$(CC) -o $@ $^  <br>
 
-here bin/main which relies on obj files i.e. $(OBJECT)  and  lib file ($(LIB)/$(LIBFILE))
-therefore it will call 
-$(OBJS)/%.o : $(SRC)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+here bin/main which relies on obj files i.e. $(OBJECT)  and  lib file ($(LIB)/$(LIBFILE)) <br>
+therefore it will call  <br>
+$(OBJS)/%.o : $(SRC)/%.c   <br>
+	$(CC) $(CFLAGS) -c $< -o $@  <br>
   
- now object files will be generaed. Here $(OBJS)/%.o has dependency on $(SRC)/%.c. So it will look for .c files
- will create corresponding .o files
- like:
- gcc -Wall -Iinc -std=gnu99 -c src/file.c -o objs/file.o
- and we get file.o as o/p file
+ now object files will be generaed. Here $(OBJS)/%.o has dependency on $(SRC)/%.c. So it will look for .c files <br>
+ will create corresponding .o files <br>
+ like: <br>
+ gcc -Wall -Iinc -std=gnu99 -c src/file.c -o objs/file.o <br>
+ and we get file.o as o/p file <br>
  
- similarly, 
- $(LIB)/$(LIBFILE): 
-	ar rcs $@ $(OBJS)/*.o 
+ similarly,  <br>
+ $(LIB)/$(LIBFILE):  <br>
+	ar rcs $@ $(OBJS)/*.o  <br>
   
-  will generate lib(.a) files
-  Command: ar rcs lib/libfile.a objs/file1.o ....
+  will generate lib(.a) files <br>
+  Command: ar rcs lib/libfile.a objs/file1.o ....  <br>
   
-  And at the end 
+  And at the end   <br>
   
-$(BIN)/$(TARGET) : $(OBJECT) $(LIB)/$(LIBFILE)
-	$(CC) -o $@ $^
+$(BIN)/$(TARGET) : $(OBJECT) $(LIB)/$(LIBFILE)  <br>
+	$(CC) -o $@ $^    <br>
   
-  it will genarate main file inside bin dir
+  it will genarate main file inside bin dir  <br>
   
- command: gcc -o bin/main objs/file1.o .....
+ command: gcc -o bin/main objs/file1.o .....   <br>
  
+   
+ Clean:     <br>
+ rm objs/* bin/*    <br>
  
- Clean:
- rm objs/* bin/*
- 
- remove all files from objs and bin directory
+ remove all files from objs and bin directory <br>
  
